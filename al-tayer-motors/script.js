@@ -16,7 +16,7 @@ const elements = document.querySelectorAll('.from-left, .from-right');
           el.classList.add('visible');
         }
       });
-    }
+    } 
   
     window.addEventListener('scroll', revealOnScroll);
     window.addEventListener('load', revealOnScroll);
