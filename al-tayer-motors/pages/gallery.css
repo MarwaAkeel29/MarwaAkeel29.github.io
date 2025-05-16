@@ -1,0 +1,409 @@
+/* Removes default spacing and sets consistent box-sizing. 
+Sets a full-height black background. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* GENERAL RESET & BASE */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0a0a0a;
+  color: white;
+  font-family: 'Teko', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Creates a fixed, semi-transparent black 
+navbar with spacing and vertical centering. */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  height: 70px;
+}
+
+/* Large, bold white text. */
+.navbar .logo {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+/* Horizontal navigation layout 
+with spacing between items. */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+/* Each list item is relatively positioned to enable pseudo-element effects. */
+.nav-links li {
+  position: relative;
+}
+
+/* Clean, animated hover effects. */
+.nav-links a {
+  position: relative;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Color-gradient lines animate on top and bottom. Link floats up slightly. */
+.nav-links a::before,
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, red, blue);
+  transition: width 0.4s ease;
+}
+
+.nav-links a::before {
+  top: 0;
+  left: 100%;
+  transform: translateX(-100%);
+}
+
+.nav-links a::after {
+  bottom: 0;
+  left: 0;
+}
+
+.nav-links a:hover {
+  transform: translateY(-4px);
+}
+
+.nav-links a:hover::before,
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+ /* Logo image aligns with text and keeps a consistent size. */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 70px;
+  width: auto;
+  margin-right: 10px;
+}
+
+/* MAIN CONTAINER */
+main {
+  display: flex;
+  width: 100%;
+  margin-top: 70px; /* to account for fixed nav */
+}
+
+/* FILTER SIDEBAR */
+.filter-bar {
+  width: 400px;
+  padding: 50px;
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  display: flex; /* Use flex to lay items in a column */ 
+  flex-direction: column; 
+  align-items: flex-start; 
+  gap: 15px; 
+  border-right: 1px solid rgba(236, 232, 232, 0.07);
+  box-shadow: inset -2px 0 8px rgba(0, 0, 0, 0.3);
+  position: sticky; /* Keep it fixed on scroll */
+  top: 70px;
+  height: 100%;
+  z-index: 10; /* Keep it above other content */
+}
+
+/* FILTER TITLE */
+.filter-btn {
+  width: 100%; /* Full width */
+  background: rgba(7, 2, 2, 0.05); /* Light background */
+  border: none;
+  color: white; 
+  padding: 10px 10px;
+  padding-left: 20px;
+  font-size: 16px;
+  border-radius: 40px 0;
+  cursor: pointer;
+  text-align: left; /* Align text to the left */
+  transition: transform 0.3s ease;
+}
+
+/* HOVER + ACTIVE STATE with GRADIENT */
+.filter-btn:hover,
+.filter-btn.active {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  background: linear-gradient(135deg, #ff3c3c, #3c8eff);
+  box-shadow: 0 0 10px rgba(222, 188, 188, 0.4), 0 0 20px rgba(60, 142, 255, 0.3); /* Gradient shadow */
+}
+
+
+/* GALLERY AREA */
+.gallery-container {
+  display: flex;         /* Use flex to lay items in a row */
+  flex-wrap: nowrap;    /* Prevent wrapping to a new line */
+  overflow-x: auto;   /* Enable horizontal scroll */
+  overflow-y: hidden; 
+  margin-left: 5px;  /* Hide vertical overflow */
+  scroll-behavior: smooth;  /* Smooth scrolling */
+  padding: 40px 30px;
+  gap: 25px;
+  height: auto;   /* allow content to define height */
+}
+
+
+/* Each gallery item now behaves like a block in a column layout */
+.gallery-item {
+  flex: 0 0 auto; /* Prevent stretching; stay fixed width */
+  width: 290px;
+  height: 460px;
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease;
+  overflow: hidden; /* Hide overflow */
+  background-color: #111;
+}
+
+/* Image inside the gallery item */
+.gallery-item img {
+  width: 100%;
+  height: 460px; /* Fixed height */
+  object-fit: cover;
+  display: block;
+  transition: transform 1s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03); /* Slightly enlarge on hover */
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1); /* Slightly enlarge image on hover */
+}
+
+
+/* Scrollbar styles for the gallery container */
+.gallery-container::-webkit-scrollbar {
+  height: 8px; 
+}
+.gallery-container::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+.gallery-container::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+/* FADE-IN EFFECT */
+.fade-in {
+  opacity: 0; 
+  transform: translateY(30px); 
+  animation: fadeIn 0.6s forwards; 
+}
+
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Footer base styles: background, text color, padding, and font */
+footer {
+  background-color: #111;
+  border-top: #ccc solid 1px;
+  color: #fff;
+  padding: 40px 20px;
+  font-family: 'Teko', sans-serif;
+}
+
+/* Flex container for footer columns; wraps on smaller screens */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Each column inside the footer with flexible width */
+.footer-column {
+  flex: 1 1 200px;
+  min-width: 180px;
+}
+
+/* Heading style for each footer section */
+.footer-column h4 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #141687;
+}
+
+/* Unordered list style reset */
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Space between each list item link */
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+/* Link style: subtle color with smooth hover transition */
+.footer-column ul li a {
+  text-decoration: none;
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+/* On hover, make links fully white */
+.footer-column ul li a:hover {
+  color: #fff;
+}
+
+/* Social icon style: size, spacing, and color */
+.social-icons a {
+  font-size: 1.5rem;
+  margin-right: 15px;
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+/* On hover, change social icon color to orange */
+.social-icons a:hover {
+  color: #ffffff;
+}
+
+/* Bottom line of the footer: centered and subtle */
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* ---------- MEDIA QUERIES FOR RESPONSIVENESS ---------- */
+
+@media (max-width: 1024px) {
+  .filter-bar {
+    width: 280px;
+    padding: 30px;
+  }
+
+  .gallery-item {
+    width: 240px;
+    height: 400px;
+  }
+
+  .gallery-item img {
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Keep navbar horizontal */
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    height: 70px;
+  }
+
+  /* Slightly shrink logo */
+  .logo img {
+    height: 50px;
+  }
+
+  /* Shrink nav text spacing */
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+
+  /* Push main content further down to avoid overlap */
+  main {
+    margin-top: 80px; /* ensure content clears fixed nav */
+  }
+
+  /* Sidebar becomes full-width above gallery */
+  .filter-bar {
+    width: 100%;
+    padding: 20px;
+    margin-top: 0;
+    border-right: none;
+    border-bottom: 1px solid rgba(236, 232, 232, 0.07);
+    box-shadow: inset 0 -2px 8px rgba(0, 0, 0, 0.3);
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  /* Gallery tweaks for tighter spacing */
+  .gallery-container {
+    padding: 20px;
+    margin-left: 0;
+    gap: 15px;
+  }
+
+  .gallery-item {
+    width: 220px;
+    height: 340px;
+  }
+
+  .gallery-item img {
+    height: 340px;
+  }
+
+  /* Footer centers and stacks */
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .filter-btn {
+    font-size: 14px;
+    padding-left: 15px;
+  }
+
+  .gallery-item {
+    width: 180px;
+    height: 300px;
+  }
+
+  .gallery-item img {
+    height: 300px;
+  }
+}
+
+
