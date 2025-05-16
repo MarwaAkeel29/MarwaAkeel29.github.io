@@ -109,7 +109,6 @@ navbar with spacing and vertical centering. */
   justify-content: center;
   align-items: center; /* vertically centers */
   gap: 2rem;
-  margin-top: 60px; /* Space for fixed navbar */
   padding: 4rem 2rem 6rem; /* Extra bottom padding before footer */
   min-height: 60vh; /* Ensures center feel on tall screens */
 }
