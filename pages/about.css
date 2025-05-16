@@ -147,7 +147,7 @@ with spacing between items. */
   margin: 20px auto; /* Centers the text */
   max-width: 800px; /* Limits width for readability */
   padding: 0 1.2rem; /* Adds horizontal padding */
-  text-align: justify; /* Justifies text for a cleaner look */
+  text-align: center; /* Justifies text for a cleaner look */
   margin-top: 20px;
 }
 
