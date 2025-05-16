@@ -111,7 +111,6 @@ body, html {
 /* Video fills the entire hero section */
 .background-video {
   position: absolute;
-  margin-top: 50px;
   top: 0;
   left: 0;
   width: 100%;
@@ -139,8 +138,7 @@ body, html {
   width: 90%;
   max-width: 600px;
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(2px); /* Soft background blur */
+  background: rgba(13, 13, 13, 0.1);
   z-index: 1;
   text-align: center;
   color: white;
