@@ -1,0 +1,553 @@
+/* Removes default spacing and sets consistent box-sizing. 
+Sets a full-height black background. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensures padding/border do not expand the box */
+}
+
+body, html {
+  height: 100%; /* Allows full-screen background */
+  background: black; /* Sets a dark base for the entire site */
+}
+
+
+/* Creates a fixed, semi-transparent black 
+navbar with spacing and vertical centering. */
+.navbar {
+  display: flex; /* Horizontal layout for logo and links */
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  padding: 0.5rem 2rem; /* Spacing inside the navbar */
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  width: 100%;
+  top: 0; /* Anchored to the top */
+  z-index: 100; /* On top of other elements */
+  height: 70px;
+}
+
+/* Large, bold white text. */
+.navbar .logo {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+/* Horizontal navigation layout 
+with spacing between items. */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+/* Clean, animated hover effects. */
+.nav-links a {
+  position: relative;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Color-gradient lines animate on top and bottom. Link floats up slightly. */
+.nav-links a::before,
+.nav-links a::after {
+  content: '';
+  position: absolute; /* Positions at top and bottom */
+  height: 2px; /* Thin animated bar */
+  width: 0%; /* Starts invisible */
+  background: linear-gradient(90deg, red, blue); /* Eye-catching color blend */
+  transition: width 0.4s ease; /* Animates bar expansion */
+}
+
+.nav-links a::before {
+  top: 0;
+  left: 100%;
+  transform: translateX(-100%); /* Aligns from right edge */
+}
+
+.nav-links a::after {
+  bottom: 0;
+  left: 0;
+}
+
+.nav-links a:hover {
+  transform: translateY(-4px); /* Floats on hover */
+}
+
+.nav-links a:hover::before,
+.nav-links a:hover::after {
+  width: 100%; /* Extends bar fully on hover */
+}
+
+ /* Logo image aligns with text and keeps a consistent size. */
+.logo {
+  display: flex; /* Allows image and text in one line */
+  align-items: center; /* Vertically centers the image */
+}
+
+.logo img {
+  height: 60px; /* Matches navbar height */
+  width: auto; /* Keeps original proportions */
+  margin-right: 10px; /* Space between image and text */
+}
+
+main {
+  margin-top: 70px; /* Pushes content below the navbar */
+}
+
+
+/* ABOUT SECTION */ 
+/* Creates a vertically spaced section with a dark gradient background. */
+.about-section {
+  padding: 1rem 2rem 3rem;
+  background: linear-gradient(to bottom, #1a1a1a, #0a0a0a);
+  color: white;
+  text-align: center;
+  margin-top: 70px;
+}
+
+/* Adds vertical spacing from the top of the section. */
+.about-section .container {
+  max-width: 800px;
+  margin-top: 50px;
+}
+
+/* Applies a shiny animated gradient to section titles. */
+.about-title, .count, .logo-title {
+  font-size: 2.5rem; /* Large attention-grabbing size */
+  font-weight: bold; /* Heavier emphasis */
+  font-family: 'Teko', sans-serif; /* Modern square font */
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #4da6ff, #ff0000, #4da6ff);
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: textShine 4s linear infinite; /* Moving gradient animation */
+}
+
+
+/* Adds a soft glow effect to the text. */
+@keyframes textShine {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Makes text readable with soft gray color and wide side margins. */
+.about-section p {
+  font-size: 1.2rem;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.9; /* Improves vertical spacing between lines. */
+  color: #ccc;
+  margin-left: 250px;
+  margin-right: 250px;
+  margin-top: 20px;
+}
+
+/* Smoothly fades elements in as you scroll down. */
+.fade-section {
+  opacity: 0;
+  transform: translateY(40px);  /*Starts slightly lower and animates upward. */
+  will-change: transform, opacity; /* Will-change property for better performance during animation. */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);  /* Animates into place */
+}
+
+ /* Holds counters or statistics with centered layout and spacing. */
+.stats-section {
+  position: relative;
+  color: white;
+  text-align: center;
+  padding: 5rem 2rem;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Adds a faded Earth map behind the section to suggest global reach. */
+.stats-section::before {
+  content: "";
+  position: absolute;
+  margin-top: 30px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../images/earth_map.jpg') no-repeat center center;
+  background-size: cover;
+  opacity: 0.2; /* adjust for visibility */
+  filter: brightness(1.9); /* darker */
+  z-index: -1;
+}
+      
+.stats-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+}
+
+/* Displays individual stat items with glowing effect and lift-on-hover. */
+.stat-box {
+  flex: 1 1 200px; /* Grow, shrink, base width */
+  border: 2px solid rgba(255, 255, 255, 0.1); /* Light transparent border */
+  background: rgba(13, 12, 12, 0.5); /* Translucent background */
+  box-shadow:
+  0 0 10px rgba(191, 205, 219, 0.6),   /* soft blue glow */
+  0 0 30px rgba(7, 8, 8, 0.3);   /* extended blue halo */
+  border-radius: 30px;
+  padding: 2rem 3rem;
+  min-width: 100px;
+  transition: transform 0.3s;
+  transform: translateY(20px); /* Initial lift */
+}
+      
+.stat-box:hover {
+  transform: scale(1.05); /* Lifts slightly on hover */
+}
+      
+.stat-number {
+  font-size: 3rem;
+  font-family: 'Playfair Display', serif;
+}    
+       
+/* LOGO SECTION */
+/* Displays each car brand in a modern glowing box layout. */
+.logo-section {
+  background: transparent; /* No background color */
+  padding: 4rem 2rem;
+}
+
+.logo-title {
+  margin-bottom: 40px; /* Separates from logos */
+}
+
+/* .logo-row (div) — Flex container for logo and text blocks with spacing and background styling */
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding: 1.5rem 2rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  border: 2px solid transparent;
+  position: relative;
+  overflow-x: hidden;
+  flex-wrap: nowrap;
+}
+
+/* .logo-row::before — Decorative border effect behind the logo row */
+.logo-row::before { 
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px; 
+  right: -2px;
+  bottom: -2px;
+  z-index: -1;
+  border-radius: 14px;
+}
+
+/* .brand-logo (img) — Standard brand logo with smooth hover animation */
+.brand-logo {
+  margin-left: 10px;
+  width: 250px;
+  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* .brand-logo1 (img) — Alternate logo with smaller size and same animation */
+.brand-logo1 {
+  width: 150px;
+  margin-left: 15px;
+  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* .brand-logo:hover, .brand-logo1:hover (img) — Zoom and brighten effect on hover */
+.brand-logo:hover,
+.brand-logo1:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+/* .logo-text (div) — Text block next to the logo with clean typography */
+.logo-text {
+  max-width: 300px;
+  color: #ccc;
+  font-family: 'Playfair Display', serif;
+}
+
+/* .logo-text h3 — Heading within the logo text block */
+.logo-text h3 {
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+/* .logo-text p — Paragraph under the logo heading */
+.logo-text p {
+  font-size: 0.95rem;
+}
+   
+/* Animations */
+/* .logo-row.from-left (div) — Hidden row slides in from the left with fade */
+.logo-row.from-left {
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+  justify-content: flex-start;
+}
+
+/* .logo-row.from-right (div) — Hidden row slides in from the right with fade */
+.logo-row.from-right {
+  opacity: 0;
+  transform: translateX(80px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+  justify-content: flex-end;
+}
+
+/* .logo-row.visible (div) — Final state: fully visible and centered */
+.logo-row.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* .logo-row (div) — Base styling with subtle border and fade-on-hover setup */
+.logo-row {
+  position: relative;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1.5rem 2rem;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+/* .logo-row::before / ::after — Top and bottom borders that expand on hover */
+.logo-row::before,
+.logo-row::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(to right, #ff0000, #4da6ff);
+  transition: width 0.4s ease;
+}
+
+/* .logo-row::before — Top glow line starts from left */
+.logo-row::before {
+  top: 0;
+  left: 0;
+}
+
+/* .logo-row::after — Bottom glow line starts from right */
+.logo-row::after {
+  bottom: 0;
+  right: 0;
+}
+
+/* .logo-row:hover::before / ::after — Expand glowing lines to full width on hover */
+.logo-row:hover::before,
+.logo-row:hover::after {
+  width: 100%;
+}
+
+ 
+/* Different dimensions/styles for each brand’s vehicle image. */
+.car-image {
+  width: 310px;  /* Increase size */
+  height: 250px;
+  margin-left: 4rem;
+  margin-right: 2rem;
+  transition: transform 0.3s ease;
+    }
+
+.car-image1 {
+  width: 390px;  /* Increase size */
+  height: 300px;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  transition: transform 0.3s ease;
+  filter: contrast(1.1);
+}
+  
+.car-image2 {
+  width: 450px;  /* Increase size */
+  height: 290px;
+  margin-left: 7rem;
+  margin-right: 8rem;
+  transition: transform 0.3s ease;
+  filter: contrast(1.1);
+}
+  
+.car-image3 {
+  width: 450px;  /* Increase size */
+  height: 250px;
+  margin-left: 5rem;
+  margin-right: 2rem;
+  transition: transform 0.3s ease;
+}
+  
+.car-image4 {
+ width: 295px;  /* Increase size */
+  height: 220px;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  transition: transform 0.3s ease;
+}
+  
+.car-image5 {
+  width: 320px;  /* Increase size */
+  height: 250px;
+  margin-left: 1rem;
+  margin-right: 5rem;
+  transition: transform 0.3s ease;
+  filter: contrast(1.2);
+}
+    
+.car-image:hover,
+.car-image1:hover,
+.car-image2:hover,
+.car-image3:hover,
+.car-image4:hover,
+.car-image5:hover {
+  transform: scale(1.1); /* Zoom effect */
+}
+
+/* Footer base styles: background, text color, padding, and font */
+footer {
+  background-color: #111;
+  border-top: #ccc solid 1px;
+  color: #fff;
+  padding: 40px 20px;
+  font-family: 'Teko', sans-serif;
+}
+
+/* Flex container for footer columns; wraps on smaller screens */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Each column inside the footer with flexible width */
+.footer-column {
+  flex: 1 1 200px;
+  min-width: 180px;
+}
+
+/* Heading style for each footer section */
+.footer-column h4 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #141687;
+}
+
+/* Unordered list style reset */
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Space between each list item link */
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+/* Link style: subtle color with smooth hover transition */
+.footer-column ul li a {
+  text-decoration: none;
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+/* On hover, make links fully white */
+.footer-column ul li a:hover {
+  color: #fff;
+}
+
+/* Social icon style: size, spacing, and color */
+.social-icons a {
+  font-size: 1.5rem;
+  margin-right: 15px;
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+/* On hover, change social icon color to orange */
+.social-icons a:hover {
+  color: #ffffff;
+}
+
+/* Bottom line of the footer: centered and subtle */
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* Mobile navbar becomes vertical, logo above links */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    height: auto;
+  }
+
+  .logo {
+    margin-bottom: 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 0;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+
+
+
