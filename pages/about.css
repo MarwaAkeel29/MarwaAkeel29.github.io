@@ -100,11 +100,6 @@ with spacing between items. */
   margin-right: 10px; /* Space between image and text */
 }
 
-main {
-  padding-top: 120px; /* Pushes content below the navbar */
-}
-
-
 /* ABOUT SECTION */ 
 /* Creates a vertically spaced section with a dark gradient background. */
 .about-section {
