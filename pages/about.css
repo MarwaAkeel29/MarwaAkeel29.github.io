@@ -21,7 +21,7 @@ navbar with spacing and vertical centering. */
   flex-wrap: wrap; /* Allows wrapping on smaller screens */
   padding: 0.5rem 2rem; /* Spacing inside the navbar */
   background: rgba(0, 0, 0, 0.7);
-  position: fixed;
+  position: sticky; /* Sticks to the top on scroll */
   width: 100%;
   top: 0; /* Anchored to the top */
   z-index: 100; /* On top of other elements */
@@ -101,7 +101,7 @@ with spacing between items. */
 }
 
 main {
-  margin-top: 70px; /* Pushes content below the navbar */
+  padding-top: 120px; /* Pushes content below the navbar */
 }
 
 
@@ -112,13 +112,12 @@ main {
   background: linear-gradient(to bottom, #1a1a1a, #0a0a0a);
   color: white;
   text-align: center;
-  margin-top: 70px;
 }
 
 /* Adds vertical spacing from the top of the section. */
 .about-section .container {
   max-width: 800px;
-  margin-top: 50px;
+  
 }
 
 /* Applies a shiny animated gradient to section titles. */
@@ -150,8 +149,10 @@ main {
   font-family: 'Open Sans', sans-serif;
   line-height: 1.9; /* Improves vertical spacing between lines. */
   color: #ccc;
-  margin-left: 250px;
-  margin-right: 250px;
+  margin: 20px auto; /* Centers the text */
+  max-width: 800px; /* Limits width for readability */
+  padding: 0 1.2rem; /* Adds horizontal padding */
+  text-align: justify; /* Justifies text for a cleaner look */
   margin-top: 20px;
 }
 
@@ -396,14 +397,6 @@ main {
   filter: contrast(1.1);
 }
   
-.car-image3 {
-  width: 450px;  /* Increase size */
-  height: 250px;
-  margin-left: 5rem;
-  margin-right: 2rem;
-  transition: transform 0.3s ease;
-}
-  
 .car-image4 {
  width: 295px;  /* Increase size */
   height: 220px;
@@ -412,7 +405,8 @@ main {
   transition: transform 0.3s ease;
 }
   
-.car-image5 {
+.car-image5,
+.car-image3  {
   width: 320px;  /* Increase size */
   height: 250px;
   margin-left: 1rem;
@@ -507,16 +501,28 @@ footer {
 }
 
 /* Mobile navbar becomes vertical, logo above links */
+
 @media (max-width: 768px) {
+  .about-section p {
+    font-size: 1rem;
+    margin: 1rem 1.2rem;
+    padding: 0;
+    line-height: 1.6;
+  }
+
+  .logo img {
+    height: 50px;
+  }
+
+  .logo {
+    margin-bottom: 1rem;
+  }
+
   .navbar {
     flex-direction: column;
     align-items: center;
     padding: 1rem;
     height: auto;
-  }
-
-  .logo {
-    margin-bottom: 1rem;
   }
 
   .nav-links {
@@ -537,6 +543,17 @@ footer {
     padding: 0.8rem 0;
   }
 
+  .logo-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo-text {
+    max-width: 90%;
+    margin-top: 1rem;
+  }
+
   .footer-container {
     flex-direction: column;
     align-items: center;
@@ -547,6 +564,8 @@ footer {
     justify-content: center;
   }
 }
+
+
 
 
 
