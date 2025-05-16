@@ -108,7 +108,6 @@ with spacing between items. */
 main {
   display: flex;
   width: 100%;
-  margin-top: 70px; /* to account for fixed nav */
 }
 
 /* FILTER SIDEBAR */
