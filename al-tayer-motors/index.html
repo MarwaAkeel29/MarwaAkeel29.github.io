@@ -1,0 +1,92 @@
+<!DOCTYPE html> <!-- Defines the document as an HTML5 document -->
+<html lang="en"> <!-- Root element of the page, language set to English -->
+<head> <!-- Contains metadata and links to external resources -->
+  <meta charset="UTF-8" /> <!-- Sets character encoding to UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!-- Ensures responsive layout on all devices -->
+  <title>Al Tayer Motors</title> <!-- Title of the page shown in browser tab -->
+  <link rel="stylesheet" href="style.css" /> <!-- Links external CSS file for styling -->
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;700&display=swap" rel="stylesheet"> <!-- Imports custom Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" /> <!-- Links Font Awesome for social icons -->
+</head>
+
+<body> <!-- Main content of the web page -->
+
+  <!-- Header and Navigation -->
+  <header> <!-- Contains the navigation bar -->
+    <nav class="navbar"> <!-- Navigation container -->
+      <div class="logo"> <!-- Logo section -->
+        <img src="logos/al-tayer-logo.jpg" alt="Al Tayer Motors Logo" class="logo-img" /> <!-- Company logo image -->
+      </div>
+      <ul class="nav-links"> <!-- Navigation links list -->
+        <li><a href="index.html">Home</a></li> <!-- Link to Home page -->
+        <li><a href="pages/about.html" class="active">About</a></li> <!-- Link to About page with active class -->
+        <li><a href="pages/brands.html">Brands</a></li> <!-- Link to Brands page -->
+        <li><a href="pages/gallery.html">Gallery</a></li> <!-- Link to Gallery page -->
+        <li><a href="pages/contact.html">Contact</a></li> <!-- Link to Contact page -->
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Car Section with Background Video -->
+  <section class="car"> <!-- Car section with full-screen background video -->
+    <!-- Background video -->
+    <video autoplay muted loop playsinline class="background-video"> <!-- Video plays automatically, muted, and loops -->
+      <source src="video/car-video.mp4" type="video/mp4" /> <!-- MP4 video source -->
+      Your browser does not support the video tag. <!-- Fallback text if video is unsupported -->
+    </video>
+
+    <div class="overlay"> <!-- Text overlay on top of video -->
+      <h1>Welcome to Al Tayer Motors</h1> <!-- Main welcome heading -->
+      <p class="brand-rotate"> <!-- Rotating brand name paragraph -->
+        Explore excellence with <span id="brand-name">Ford</span> <!-- Dynamic brand name span -->
+      </p>      
+    </div>
+  </section> 
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+  <div class="footer-container">
+    <!-- Left Column -->
+    <div class="footer-column">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pages/about.html">About</a></li>
+        <li><a href="pages/brands.html">Brands</a></li>
+        <li><a href="pages/gallery.html">Gallery</a></li>
+        <li><a href="pages/contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Middle Column -->
+    <div class="footer-column">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="pages/contact.html#book-test-drive">Book a Test Drive</a></li>
+        <li><a href="pages/contact.html#book-meeting">Book a Meeting</a></li>
+        <li><a href="pages/contact.html#contact-form">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Right Column: Socials -->
+    <div class="footer-column">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/AlTayerMotors" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/altayermotors" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.twitter.com/AlTayerMotors" target="_blank"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+  <p class="footer-bottom">&copy; 2025 Al Tayer Motors. All rights reserved.</p>
+  </footer>
+  
+  <script src="script.js"></script> <!-- Links external JavaScript file -->
+
+</body>
+</html>
+<!-- End of HTML document -->

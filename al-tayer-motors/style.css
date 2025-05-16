@@ -1,0 +1,355 @@
+/* Removes default spacing and sets consistent box-sizing.
+   Sets a full-height black background. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  background: black;
+  scroll-behavior: smooth;
+}
+
+/* Creates a fixed, semi-transparent black 
+   navbar with spacing and vertical centering. */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem; /* Even spacing around nav content */
+  background: rgba(0, 0, 0, 0.7); /* Transparent black */
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  height: 70px; /* Matches padding-top in .car */
+}
+
+/* Large, bold white text for branding. */
+.navbar .logo {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+/* Horizontal navigation layout 
+   with spacing between items. */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem; /* Spacing between nav items */
+}
+
+/* Each list item is relatively positioned to enable pseudo-element effects. */
+.nav-links li {
+  position: relative;
+}
+
+/* Styled links with animated hover effects and spacing. */
+.nav-links a {
+  position: relative;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Adds gradient lines that appear on hover */
+.nav-links a::before,
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 0%; /* Grows on hover */
+  background: linear-gradient(90deg, red, blue);
+  transition: width 0.4s ease;
+}
+
+.nav-links a::before {
+  top: 0;
+  left: 100%;
+  transform: translateX(-100%);
+}
+
+.nav-links a::after {
+  bottom: 0;
+  left: 0;
+}
+
+.nav-links a:hover {
+  transform: translateY(-4px); /* Link floats slightly upward */
+}
+
+.nav-links a:hover::before,
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Flex logo with space between image and text */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 70px; /* Keeps logo height consistent with navbar */
+  width: auto;
+  margin-right: 10px;
+}
+
+/* Hero section with full screen height and background video */
+.car {
+  position: relative;
+  padding-top: 70px; /* Offset content below navbar */
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Video fills the entire hero section */
+.background-video {
+  position: absolute;
+  margin-top: 50px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures no black bars */
+  z-index: 0;
+}
+
+/* Transparent overlay — can be used for tinting effects */
+.car::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Text block with centered overlay and blur effect */
+.car .overlay {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  padding: 1rem;
+  width: 90%;
+  max-width: 600px;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px); /* Soft background blur */
+  z-index: 1;
+  text-align: center;
+  color: white;
+}
+
+/* Animated text with moving gradient */
+.brand-rotate span {
+  background: linear-gradient(90deg, red, blue, red);
+  background-size: 300%; /* Extra wide gradient for motion */
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientMove 3s ease infinite, fadeIn 0.5s ease-in-out;
+  font-weight: 700;
+  font-size: 1.7em;
+}
+
+/* Smooth horizontal movement of gradient */
+@keyframes gradientMove {
+  0% { background-position: 0%; }
+  50% { background-position: 100%; }
+  100% { background-position: 0%; }
+}
+
+/* Fades in content while sliding it up */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Heading for hero section with entry animation */
+.car h1 {
+  font-family: 'Teko', sans-serif;
+  font-size: 2.2rem;
+  margin-bottom: 0.4rem;
+  animation-delay: 0.3s;
+}
+
+/* Supporting paragraph text with delayed fade */
+.car p {
+  font-family: 'Teko', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.9rem;
+  animation-delay: 0.6s;
+}
+
+/* Shared fade/slide animation */
+.car h1, .car p {
+  animation: fadeSlide 1.2s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Footer base styles: background, text color, padding, and font */
+footer {
+  background-color: #111;
+  border-top: #ccc solid 1px;
+  color: #fff;
+  padding: 40px 20px;
+  font-family: 'Teko', sans-serif;
+}
+
+/* Flex container for footer columns; wraps on smaller screens */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Each column inside the footer with flexible width */
+.footer-column {
+  flex: 1 1 200px;
+  min-width: 180px;
+}
+
+/* Heading style for each footer section */
+.footer-column h4 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #141687;
+}
+
+/* Unordered list style reset */
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Space between each list item link */
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+/* Link style: subtle color with smooth hover transition */
+.footer-column ul li a {
+  text-decoration: none;
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+/* On hover, make links fully white */
+.footer-column ul li a:hover {
+  color: #fff;
+}
+
+/* Social icon style: size, spacing, and color */
+.social-icons a {
+  font-size: 1.5rem;
+  margin-right: 15px;
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+/* On hover, change social icon color to orange */
+.social-icons a:hover {
+  color: #ffffff;
+}
+
+/* Bottom line of the footer: centered and subtle */
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* Mobile navbar becomes vertical, logo above links */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    height: auto;
+  }
+
+  .logo {
+    margin-bottom: 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 0;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+/* Shrinks fonts slightly for very small screens */
+@media (max-width: 360px) {
+  body {
+    font-size: 14px;
+  }
+
+  .car h1 {
+    font-size: 1.5rem;
+  }
+
+  .car p {
+    font-size: 1.2rem;
+  }
+}
+
+/* Prevents site from becoming too stretched on very wide screens */
+@media (min-width: 1400px) {
+  body {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .navbar {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .car {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
