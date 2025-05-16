@@ -1,0 +1,216 @@
+<!DOCTYPE html> <!-- Defines the document as an HTML5 document -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | Al Tayer Motors</title> <!-- Title of the page shown in browser tab -->  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contact.css"> <!-- Links external CSS file for styling -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" /> <!-- Links Font Awesome for social icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;700&display=swap" rel="stylesheet"> <!-- Imports custom Google Fonts -->
+
+</head>
+<body>
+
+    <!-- Header and Navigation -->
+  <header>
+    <nav class="navbar"> <!-- Navigation container -->
+        <div class="logo"> <!-- Logo section -->
+            <img src="../logos/al-tayer-logo.jpg" alt="Al Tayer Motors Logo" class="logo-img" />
+        </div>
+      <ul class="nav-links"> <!-- Navigation links list -->
+        <li><a href="../index.html">Home</a></li> <!-- Link to Home page -->
+        <li><a href="about.html" >About</a></li> <!-- Link to About page -->
+        <li><a href="brands.html">Brands</a></li> <!-- Link to Brands page -->
+        <li><a href="gallery.html">Gallery</a></li> <!-- Link to Gallery page -->
+        <li><a href="contact.html" class="active" >Contact</a></li> <!-- Link to Contact page with active class-->
+      </ul>
+    </nav>
+  </header> 
+
+  <!-- Contact Section -->
+<div class="contact-cards"> 
+
+  <!-- Card 1: Book a Test Drive -->
+  <div class="card fade-up delay-1" id="book-test-drive"> 
+    <div class="card-inner"> 
+
+      <!-- Front Side -->
+      <div class="card-front">
+        <div class="image-overlay-container"> 
+          <img src="../images/testdrive.jpg" alt="Test Drive">
+          <h3 class="overlay-heading">Book a Test Drive</h3> <!-- Overlay heading -->
+        </div>
+      </div>
+
+      <!-- Back Side -->
+      <div class="card-back">
+        <form>
+          <input type="text" placeholder="Full Name*" required /> <!-- Input for full name -->
+          <input type="email" placeholder="Email Address*" required /> <!-- Input for email address -->
+          <input type="tel" placeholder="Contact Number*" required /> <!-- Input for contact number -->
+          <select required>
+            <option value="">Preferred Model*</option> <!-- Dropdown for car model selection -->
+            <optgroup label="Ford">  <!-- Group for Ford models -->
+              <option>Mustang</option>
+              <option>F-150</option>
+              <option>Explorer</option>
+              <option>Edge</option>
+            </optgroup>
+            <optgroup label="Ferrari"> <!-- Group for Ferrari models -->
+              <option>SF90 Stradale</option>
+              <option>488 Spider</option>
+              <option>Roma</option>
+              <option>Purosangue</option>
+            </optgroup>
+            <optgroup label="Land Rover"> <!-- Group for Land Rover models -->
+              <option>Range Rover</option>
+              <option>Discovery</option>
+              <option>Defender</option>
+              <option>Velar</option>
+            </optgroup>
+            <optgroup label="Maserati"> <!-- Group for Maserati models -->
+              <option>Ghibli</option>
+              <option>Levante</option>
+              <option>Quattroporte</option>
+              <option>MC20</option>
+            </optgroup>
+            <optgroup label="Lincoln"> <!-- Group for Lincoln models -->
+              <option>Nautilus</option> 
+              <option>Aviator</option>
+              <option>Corsair</option>
+              <option>Navigaor</option>
+            </optgroup>
+            <optgroup label="Jaguar"> <!-- Group for Jaguar models -->
+              <option>F-PACE</option>
+              <option>XE</option>
+              <option>XF</option>
+              <option>I-PACE</option>
+            </optgroup>
+          </select>
+          <select required> 
+            <option value="">Select Branch*</option> <!-- Dropdown for branch selection -->
+            <option>Dubai</option>
+            <option>Abu Dhabi</option>
+            <option>Sharjah</option>
+            <option>Ajman</option>
+            <option>Umm Al Quwain</option>
+            <option>Ras Al Khaimah</option>
+            <option>Fujairah</option>
+          </select>
+          <textarea placeholder="Message (optional)"></textarea> <!-- Optional message textarea -->
+          <button type="submit">Submit</button> <!-- Submit button -->
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 2: Book a Meeting -->
+  <div class="card fade-up delay-2"id="book-meeting">
+    <div class="card-inner">
+
+      <!-- Front Side -->
+      <div class="card-front">
+        <div class="image-overlay-container">
+          <img src="../images/bookmeeting.jpg" alt="Book Meeting">
+          <h3 class="overlay-heading">Book a Meeting</h3> <!-- Overlay heading -->
+        </div>
+      </div>
+
+      <!-- Back Side -->
+      <div class="card-back">
+        <form>
+          <input type="text" placeholder="Full Name*" required /> <!-- Input for full name -->
+          <input type="email" placeholder="Email Address*" required />  <!-- Input for email address -->
+          <input type="datetime-local" required />  <!-- Input for date and time selection -->
+          <select required> 
+            <option value="">Meeting Purpose*</option> <!-- Dropdown for meeting purpose selection -->
+            <option>Finance Consultation</option>
+            <option>Service Request</option>
+            <option>Car Purchase</option>
+            <option>Other</option>
+          </select>
+          <select required>
+            <option value="">Select Branch*</option> <!-- Dropdown for branch selection -->
+            <option>Dubai</option>
+            <option>Abu Dhabi</option>
+            <option>Sharjah</option>
+            <option>Ajman</option>
+            <option>Umm Al Quwain</option>
+            <option>Ras Al Khaimah</option>
+            <option>Fujairah</option>
+          </select>
+          <button type="submit">Book Now</button> <!-- Submit button -->
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 3: Contact Us -->
+  <div class="card fade-up delay-3" id="contact-form">
+    <div class="card-inner">
+
+      <!-- Front Side -->
+      <div class="card-front">
+        <div class="image-overlay-container">
+          <img src="../images/contactus.jpg" alt="Contact Us">
+          <h3 class="overlay-heading">Contact Us</h3> <!-- Overlay heading -->
+        </div>
+      </div>
+
+      <!-- Back Side -->
+      <div class="card-back">
+        <form>
+          <input type="text" placeholder="Your Name*" required /> <!-- Input for name -->
+          <input type="email" placeholder="Your Email*" required /> <!-- Input for email -->
+          <input type="text" placeholder="Subject*" required /> <!-- Input for subject -->
+          <textarea placeholder="Your Message*" required></textarea> <!-- Input for message -->
+          <button type="submit">Send Message</button> <!-- Submit button -->
+        </form>
+      </div>
+    </div>
+  </div> 
+
+</div> 
+
+<!-- Footer -->
+  <footer>
+  <div class="footer-container">
+    <!-- Left Column -->
+    <div class="footer-column">
+      <h4>Explore</h4> <!-- Left column heading -->
+      <ul>
+        <li><a href="../index.html">Home</a></li> <!-- Link to Home page -->
+        <li><a href="about.html">About</a></li> <!-- Link to About page -->
+        <li><a href="brands.html">Brands</a></li> <!-- Link to Brands page -->
+        <li><a href="gallery.html">Gallery</a></li> <!-- Link to Gallery page -->
+        <li><a href="contact.html">Contact</a></li> <!-- Link to Contact page -->
+      </ul>
+    </div>
+
+    <!-- Middle Column -->
+    <div class="footer-column">
+      <h4>Quick Links</h4> <!-- Middle column heading -->
+      <ul>
+        <li><a href="contact.html#book-test-drive">Book a Test Drive</a></li> <!-- Link to Book a Test Drive section -->
+        <li><a href="contact.html#book-meeting">Book a Meeting</a></li> <!-- Link to Book a Meeting section -->
+        <li><a href="contact.html#contact-form">Contact Us</a></li> <!-- Link to Contact Us section -->
+      </ul>
+    </div>
+
+    <!-- Right Column: Socials -->
+    <div class="footer-column">
+      <h4>Follow Us</h4> <!-- Right column heading -->
+      <div class="social-icons"> <!-- Social media icons -->
+        <a href="https://www.facebook.com/AlTayerMotors" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/altayermotors" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.twitter.com/AlTayerMotors" target="_blank"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+  <p class="footer-bottom">&copy; 2025 Al Tayer Motors. All rights reserved.</p>
+  </footer> 
+
+  <script src="contact.js"></script> <!-- Links external JavaScript file for functionality -->
+
+</body>
+</html>

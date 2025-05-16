@@ -1,0 +1,373 @@
+/* Removes default spacing and sets consistent box-sizing. 
+Sets a full-height black background. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- Make background fully black with gradient fade --- */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom, #000000, #0f0f0f, #1a1a1a);
+  color: white;
+}
+
+/* Creates a fixed, semi-transparent black 
+navbar with spacing and vertical centering. */
+.navbar {
+  display: flex; /* Flexbox for layout */
+  justify-content: space-between; /* Space between logo and links */
+  align-items: center;
+  padding: 0.5rem 2rem;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  height: 70px;
+}
+
+/* Large, bold white text. */
+.navbar .logo {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+/* Horizontal navigation layout */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+/* Each list item is relatively positioned to enable pseudo-element effects. */
+.nav-links li {
+  position: relative;
+}
+
+/* Clean, animated hover effects. */
+.nav-links a {
+  position: relative; /* Relative for pseudo-elements */
+  display: inline-block; /* Inline-block for padding */
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Color-gradient lines animate on top and bottom. Link floats up slightly. */
+.nav-links a::before,
+.nav-links a::after {
+  content: '';
+  position: absolute; /* Positioning */
+  height: 2px; /* Line height */ 
+  width: 0%;
+  background: linear-gradient(90deg, red, blue);
+  transition: width 0.4s ease;
+}
+
+/* Top line */
+.nav-links a::before {
+  top: 0;
+  left: 100%;
+  transform: translateX(-100%);
+}
+
+.nav-links a::after {
+  bottom: 0;
+  left: 0;
+}
+
+.nav-links a:hover {
+  transform: translateY(-4px);
+}
+
+/* Link floats up slightly */
+.nav-links a:hover::before,
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 70px;
+  width: auto;
+  margin-right: 10px;
+}
+
+/* Centered contact cards with flexible layout */
+.contact-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; /* vertically centers */
+  gap: 2rem;
+  margin-top: 60px; /* Space for fixed navbar */
+  padding: 4rem 2rem 6rem; /* Extra bottom padding before footer */
+  min-height: 60vh; /* Ensures center feel on tall screens */
+}
+
+/* Card styles: size, perspective, and background */
+.card {
+  width: 300px;
+  height: 420px; /* Adjusted height for better aspect ratio */
+  perspective: 1000px;
+  border-radius: 25px; /* more obvious roundness */
+  background: linear-gradient(to bottom, #222, #111);
+  overflow: hidden;
+}
+
+/* Inner card for 3D effect */
+.card-inner {
+  position: relative;  
+  width: 100%;
+  height: 100%; 
+  transition: transform 0.8s;
+  transform-style: preserve-3d; /* 3D effect */
+}
+
+/* Flipped state for card */
+.card.flipped .card-inner {
+  transform: rotateY(180deg); 
+}
+
+/* Front and back of the card */
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hides back when flipped */
+  border-radius: 20px; /* Rounded corners */
+  background: linear-gradient(to bottom, #111, #000);
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; /* Center content */
+  box-sizing: border-box; 
+}
+
+/* Front card styles */
+.card-front img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+/* Back card styles */
+.card-back {
+  transform: rotateY(180deg);
+  padding: 1rem;
+  border: 1px solid #ffffff;
+}
+
+/* Back card heading */
+.fade-up {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeUp 1s ease-out forwards;
+}
+
+/* Animation delays for staggered effect */
+.fade-up.delay-1 {
+  animation-delay: 0.3s;
+}
+.fade-up.delay-2 {
+  animation-delay: 0.6s;
+}
+.fade-up.delay-3 {
+  animation-delay: 0.9s;
+}
+
+/* Fade-up animation */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form styles: layout, spacing, and input styles */
+form {
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.5rem; 
+  width: 100%;
+}
+
+/* Input fields: padding, border, and background */
+input, select, textarea, button {
+  padding: 0.6rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+/* Input fields: padding, border, and background */
+input, select, textarea {
+  background-color: #111;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+/* Input fields: padding, border, and background */
+button {
+  background: linear-gradient(90deg, rgb(0, 0, 0), rgb(249, 243, 243), rgb(0, 0, 0));
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Button hover effect: color change and scale */
+button:hover {
+  background: #080707;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Button active effect: scale down */
+.card {
+  cursor: pointer;
+}
+
+/* Card hover effect: scale up */
+.card input:focus,
+.card textarea:focus,
+.card select:focus {
+  pointer-events: all;
+}
+ 
+/* Card hover effect: scale up */
+.overlay-heading {
+  position: absolute; /* Centered text */
+  top: 385px; /* Adjusted for better centering */
+  color: #fff;
+  background: rgba(20, 20, 20, 0.55);
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600; /* Bold text */
+  letter-spacing: 0.5px; /* Spacing between letters */
+}
+
+/* Footer base styles: background, text color, padding, and font */
+footer {
+  background-color: #111;
+  border-top: #ccc solid 1px;
+  color: #fff;
+  padding: 40px 20px;
+  font-family: 'Teko', sans-serif;
+}
+
+/* Flex container for footer columns; wraps on smaller screens */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Each column inside the footer with flexible width */
+.footer-column {
+  flex: 1 1 200px;
+  min-width: 180px;
+}
+
+/* Heading style for each footer section */
+.footer-column h4 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #141687;
+}
+
+/* Unordered list style reset */
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Space between each list item link */
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+/* Link style: subtle color with smooth hover transition */
+.footer-column ul li a {
+  text-decoration: none;
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+/* On hover, make links fully white */
+.footer-column ul li a:hover {
+  color: #fff;
+}
+
+/* Social icon style: size, spacing, and color */
+.social-icons a {
+  font-size: 1.5rem;
+  margin-right: 15px;
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+/* On hover, change social icon color to orange */
+.social-icons a:hover {
+  color: #ffffff;
+}
+
+/* Bottom line of the footer: centered and subtle */
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+
+  .card-container {
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center; /* Center cards in column */
+  }
+
+  .card {
+    width: 90%;        
+    max-width: 350px;  
+    height: auto;       
+    aspect-ratio: 1 / 1;
+    margin-bottom: 20px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+/* Responsive styles for contact cards */
+@media (max-width: 1000px) {
+  .contact-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    width: 90%;
+    margin-bottom: 2rem;
+  }
+}
